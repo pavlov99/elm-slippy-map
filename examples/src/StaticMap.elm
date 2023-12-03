@@ -30,7 +30,15 @@ type alias Model =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}
+    let
+        map =
+            SlippyMap.osmMap
+    in
+    ( { map
+        | size = { width = 512, height = 512 }
+        , center = { lat = 51.4769, lon = 0.0005 }
+        , zoom = 13
+      }
     , Cmd.none
     )
 
